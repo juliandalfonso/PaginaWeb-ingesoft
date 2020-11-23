@@ -21,10 +21,10 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 
 //Establecemos el motor de plantillas
-const engine('.hbs', exphbs(
+app.engine('.hbs', exphbs(
     {
         defaultLayout: 'main',
-        path.extname: '.hbs'
+        extname: '.hbs'
     }
 ));
 
@@ -42,7 +42,9 @@ app.use(express.urlencoded({extended: false}));
 
 // STATIC FILES-----------------------------------------------------------------------------------------
 
+//este método me permite decirle al back donde está la carpeta public
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // exporto el modulo-----------------------------------------------------------------------------------------
 module.exports = app;
