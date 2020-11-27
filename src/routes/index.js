@@ -32,7 +32,12 @@ router.post('/new-contact', (req,res)=>
         phone: req.body.phone
     };
 db.ref('paquetes').push(nuevoPaquete);
-res.send('received');
+res.redirect('/');
 });
 
+
+router.get('/delete-paquete/:id',(req,res)=>{
+    db.ref('paquetes/'+req.params.id).remove();
+    res.redirect('/');
+});
 module.exports = router;
