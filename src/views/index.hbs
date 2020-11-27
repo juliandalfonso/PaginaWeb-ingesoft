@@ -1,8 +1,27 @@
-<div class="col-md-6 offset md-3">
+<div class="col-md-6 offset-md-3">
     <div class="card">
         <div class="card-body">
             <div class="card-header">
                 <h1>Paquetes</h1>
+            </div>
+            <div class="card-body">
+                {{#if paquetes}}
+                <ul class="list-group">
+                    {{#each paquetes}}
+                        
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{firstname}}
+                                {{lastname}}
+                                {{email}}
+                                {{phone}}
+                                <a href="" class="btn btn-danger">Borrar</a>
+                            </li>
+                        
+                    {{/each}}
+                </ul>
+                {{else}}
+                <p>No hay paquetes aún</p>
+                {{/if}}
             </div>
             <div class="card-footer">
                 <form action="/new-contact" method="POST">

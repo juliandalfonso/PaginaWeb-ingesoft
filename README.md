@@ -1,0 +1,1 @@
+$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\julia\Desktop\Proyecto-Ingesoft\proyecto-ingesoft-firebase-adminsdk-fivf9-2d23d83f2b.json"
