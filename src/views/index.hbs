@@ -9,14 +9,18 @@
                 <ul class="list-group">
                     {{#each paquetes}}
                         
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <li class="list-group-item">
 
-                                {{firstname}} /
-                                {{lastname}} /
-                                {{email}} /
-                                {{phone}}
-                                <a class="far fa-edit btn btn-info m-1 p-2" ></a>
-                                <a class="far fa-trash-alt btn btn-primary m-1 p-2" href="/delete-paquete/{{@key}}"></a>
+                                <img src="{{urlimg}}" alt="" class="img-fluid">
+                                <h5>{{origen}}-{{destino}}</h5>
+                                <h6>Salida: <span class="p">{{fechaSalida}}</span  class="p"></h6>
+                                <h6>Llegada: <span class="p">{{fechaLlegada}}</span  class="p"></h6>
+                                <h6>hotel:<span class="p"> {{hotel}}</span  class="p"></h6>
+                                <h6>Detalles:</h6>
+                                <p>{{detalles}}</p>
+                                
+                                <a class="far fa-edit btn btn-info m-1 p-2 d-block" ></a>
+                                <a class="far fa-trash-alt btn btn-primary m-1 p-2 d-block" href="/delete-paquete/{{@key}}"></a>
                             </li>
                         
                     {{/each}}
@@ -26,18 +30,29 @@
                 {{/if}}
             </div>
             <div class="card-footer">
-                <form action="/new-contact" method="POST">
+                <form action="/new-paquete" method="POST">
                     <div class="form-group">
-                        <input type="text" name="firstname" placeholder="firstname" class="form-control" autofocus>
+                        <input type="text" name="origen" placeholder="origen" class="form-control" autofocus>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="lastname" placeholder="lastname" class="form-control" >
+                        <input type="text" name="destino" placeholder="destino" class="form-control" >
                     </div>
                     <div class="form-group">
-                        <input type="text" name="email" placeholder="email" class="form-control" >
+                        <label for="fechaSalida">Salida:</label>
+                        <input type="date" id="fechaSalida" name="fechaSalida">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="phone" placeholder="phone" class="form-control" >
+                        <label for="fechaLlegada">Llegada:</label>
+                        <input type="date" id="fechaLlegada" name="fechaLlegada">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="hotel" placeholder="hotel" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="detalles" placeholder="detalles" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="urlimg" placeholder="urlimg" class="form-control">
                     </div>
                     <button class="btn btn-primary btn-block">
                         ingresar

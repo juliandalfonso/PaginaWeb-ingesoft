@@ -22,14 +22,17 @@ router.get('/',(req, res)=>
     });
 });
 
-router.post('/new-contact', (req,res)=>
+router.post('/new-paquete', (req,res)=>
 {
     const nuevoPaquete = 
     {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        phone: req.body.phone
+        origen: req.body.origen,
+        destino: req.body.destino,
+        fechaSalida: req.body.fechaSalida,
+        fechaLlegada: req.body.fechaSalida,
+        hotel: req.body.hotel,
+        detalles: req.body.detalles,
+        urlimg: req.body.urlimg
     };
 db.ref('paquetes').push(nuevoPaquete);
 res.redirect('/');
