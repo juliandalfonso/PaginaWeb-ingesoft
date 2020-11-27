@@ -43,4 +43,9 @@ router.get('/delete-paquete/:id',(req,res)=>{
     db.ref('paquetes/'+req.params.id).remove();
     res.redirect('/');
 });
+
+router.get('/edit-paquete/:id',(req,res)=>{
+    db.ref('paquetes/'+req.params.id).remove();
+    res.redirect('/');
+});
 module.exports = router;
