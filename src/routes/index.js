@@ -12,13 +12,17 @@ admin.initializeApp({
 
 const db = admin.database();
 
+router.get('/',(req,res)=>
+{
+    res.render('index');
+});
 
-router.get('/',(req, res)=>
+router.get('/admin',(req, res)=>
 {
     db.ref('paquetes').once('value', (snapshot)=>
     {
         const data = snapshot.val();
-        res.render('index', {paquetes: data});
+        res.render('admin', {paquetes: data});
     });
 });
 
@@ -35,17 +39,17 @@ router.post('/new-paquete', (req,res)=>
         urlimg: req.body.urlimg
     };
 db.ref('paquetes').push(nuevoPaquete);
-res.redirect('/');
+res.redirect('/admin');
 });
 
 
 router.get('/delete-paquete/:id',(req,res)=>{
     db.ref('paquetes/'+req.params.id).remove();
-    res.redirect('/');
+    res.redirect('/admin');
 });
 
 router.get('/edit-paquete/:id',(req,res)=>{
-    db.ref('paquetes/'+req.params.id).remove();
-    res.redirect('/');
+    res.redirect('/admin');
 });
+
 module.exports = router;
