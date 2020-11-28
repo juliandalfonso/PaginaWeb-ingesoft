@@ -9,18 +9,45 @@
     <ul class="navbar-nav ml-auto">
 
       <li class="nav-item">
-        <a class="nav-link" href="#" >SignIn</a>
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#signinModal">SignIn</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">SignUp</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="#" id="logout">Logout</a>
       </li>
     </ul>
   </div>
   </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" id="login-form">
+            <div class="form-group">
+                <input type="email" id="login-email" class="form-control" placeholder="email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="login-password" class="form-control" placeholder="contraseña" required>
+            </div>
+        <button type="submit" class="btn btn-success">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,9 +60,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="" id="signupForm">
+        <form action="" id="signup-form">
             <div class="form-group">
-                <input type="text" id="signup-email" class="form-control" placeholder="email" required>
+                <input type="email" id="signup-email" class="form-control" placeholder="email" required>
             </div>
             <div class="form-group">
                 <input type="password" id="signup-password" class="form-control" placeholder="contraseña" required>
