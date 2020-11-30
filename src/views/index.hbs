@@ -22,6 +22,38 @@
   </div>
 </nav>
 
+
+{{!-- MAIN CONTENT --}}
+
+    <div class="container" id="paquetes">
+        <div class="card">
+            <div class="card-header">
+                <h1>Paquetes</h1>
+            </div>
+            <div class="card-body">
+                {{#if paquetes}}
+                <ul class="list-group">
+                    {{#each paquetes}}
+                        
+                            <li class="list-group-item my-3 border border-success">
+                                <img src="{{urlimg}}" alt="" class="img-fluid">
+                                <h5>{{origen}}-{{destino}}</h5>
+                                <h6>Salida: <span class="p">{{fechaSalida}}</span  class="p"></h6>
+                                <h6>Llegada: <span class="p">{{fechaLlegada}}</span  class="p"></h6>
+                                <h6>hotel:<span class="p"> {{hotel}}</span  class="p"></h6>
+                                <h6>Detalles:</h6>
+                                <p>{{detalles}}</p>
+                                <i class="fas fa-shopping-cart btn btn-block btn-success"></i>
+                            </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <p>No hay paquetes aún</p>
+                {{/if}}
+            </div>
+    </div>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

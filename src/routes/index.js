@@ -14,7 +14,11 @@ const db = admin.database();
 
 router.get('/',(req,res)=>
 {
-    res.render('index');
+    db.ref('paquetes').once('value', (snapshot)=>
+    {
+        const data = snapshot.val();
+        res.render('index', {paquetes: data});
+    });
 });
 
 router.get('/admin',(req, res)=>

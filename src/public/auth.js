@@ -31,12 +31,12 @@ signinForm.addEventListener('submit', e =>
     const email = document.querySelector('#login-email').value;
     const password = document.querySelector('#login-password').value;
     auth
-        .createUserWithEmailAndPassword(email,password)
+        .signInWithEmailAndPassword(email,password)
         .then(userCredential =>
             {
                 //borrar formulario
                 signupForm.reset();
-                $('#signupModal').modal('hide');
+                $('#signinModal').modal('hide');
                 console.log('logeado');
         })  
 });
@@ -48,6 +48,27 @@ logout.addEventListener('click', e =>
     e.preventDefault();
     auth.signOut().then(() =>
     {
-        console.log('logout')
+        console.log('logout');
     })
-})
+});
+
+//paquetes
+
+const paquetesList = document.querySelector('.paquetes');
+
+const x = document.querySelector('#paquetes');
+//evntos
+//si el usuario esta autenticado podra ver los datos
+auth.onAuthStateChanged(user =>
+{
+    if(user)
+    {
+        console.log('bienvenidos')
+        if (x.style.display === "none") {
+            x.style.display = "block";}
+    }
+    else{
+        console.log('chao');
+        x.style.display = "none";
+    }
+});
