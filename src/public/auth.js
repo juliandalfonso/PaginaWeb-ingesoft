@@ -1,3 +1,22 @@
+loggedOutLinks = document.querySelectorAll('.logged-out');
+loggedInLinks = document.querySelectorAll('.logged-in');
+
+const loginCheck = user =>
+{
+    if(user)
+    {
+        loggedInLinks.forEach(link => link.style.display = 'block');
+        loggedOutLinks.forEach(link => link.style.display = 'none');
+    }
+    else
+    {
+        loggedInLinks.forEach(link => link.style.display = 'none');
+        loggedOutLinks.forEach(link => link.style.display = 'block');
+
+    }
+}
+
+
 
 //SIGNUP
 const signupForm = document.querySelector('#signup-form');
@@ -52,23 +71,65 @@ logout.addEventListener('click', e =>
     })
 });
 
+
+//Google Login
+const googleButton = document.querySelector('#googleLogin');
+
+googleButton.addEventListener('click', e =>{
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+        .then(result =>
+            {
+                console.log('google sign in');
+                //borrar formulario
+                signupForm.reset();
+                $('#signupModal').modal('hide');
+            })
+        .catch(err =>
+            {
+                console.log(err);
+            })
+});
+
+
+// FACEBOOK LOGIN
+const facebookButton = document.querySelector('#facebookLogin');
+
+facebookButton.addEventListener('click', e => 
+{
+    e.preventDefault();
+    const provider = new firebase.auth.FacebookAuthProvider();
+    auth.signInWithPopup(provider)
+        .then(result => 
+            {
+                console.log('fb signed IN');
+                //borrar formulario
+                signupForm.reset();
+                $('#signupModal').modal('hide');
+            })
+        .catch(err =>
+            {
+                console.log(err);
+            }) 
+})
+
 //paquetes
 
 const paquetesList = document.querySelector('.paquetes');
 
 const x = document.querySelector('#paquetes');
+
 //evntos
 //si el usuario esta autenticado podra ver los datos
 auth.onAuthStateChanged(user =>
 {
     if(user)
     {
-        console.log('bienvenidos')
-        if (x.style.display === "none") {
-            x.style.display = "block";}
+        console.log('bienvenido');
+        loginCheck(user);
     }
     else{
         console.log('chao');
-        x.style.display = "none";
+        loginCheck(user);
     }
 });

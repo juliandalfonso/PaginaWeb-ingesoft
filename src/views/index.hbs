@@ -8,13 +8,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
 
-      <li class="nav-item">
+      <li class="nav-item logged-out" style="display: none;">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#signinModal">SignIn</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item logged-out" style="display: none;">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">SignUp</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item logged-in" style="display: none;">
         <a class="nav-link" href="#" id="logout">Logout</a>
       </li>
     </ul>
@@ -25,7 +25,7 @@
 
 {{!-- MAIN CONTENT --}}
 
-    <div class="container" id="paquetes">
+    <div class="container logged-in">
         <div class="card">
             <div class="card-header">
                 <h1>Paquetes</h1>
@@ -72,7 +72,9 @@
             <div class="form-group">
                 <input type="password" id="login-password" class="form-control" placeholder="contraseña" required>
             </div>
-        <button type="submit" class="btn btn-success">Sign In</button>
+        <button type="submit" class="btn btn-secondary btn-block">Sign In</button>
+        <button type="button" class="btn btn-primary btn-block" id="googleLogin"><i class="fab fa-google p-2"></i></button>
+        <button type="button" class="btn btn-info btn-block" id="facebookLogin"><i class="fab fa-facebook-f p-2"></i></button>
         </form>
       </div>
     </div>
