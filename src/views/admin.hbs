@@ -1,4 +1,6 @@
-<div class="col-md-6 offset-md-3">
+<img src="/wave.svg" alt="">
+
+<div class="col-md-6 offset-md-3 my-4">
     <div class="card">
         <div class="card-body">
             <div class="card-header">
@@ -17,6 +19,9 @@
                                 <h6>hotel:<span class="p"> {{hotel}}</span  class="p"></h6>
                                 <h6>Detalles:</h6>
                                 <p>{{detalles}}</p>
+                                <h6>Precio:</h6>
+                                <p>{{precio}}</p>
+
                                 <a class="far fa-edit btn btn-info m-1 p-2 d-block" href="/edit-paquete/{{@key}}"></a>
                                 <a class="far fa-trash-alt btn btn-primary m-1 p-2 d-block" href="/delete-paquete/{{@key}}"></a>
                             </li>
@@ -52,6 +57,9 @@
                     <div class="form-group">
                         <input type="url" name="urlimg" placeholder="urlimg" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <input type="text" name="precio" placeholder="precio" class="form-control">
+                    </div>
                     <button class="btn btn-primary btn-block">
                         ingresar
                     </button>
@@ -60,3 +68,5 @@
         </div>
     </div>
 </div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f3f4f5" fill-opacity="1" d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>

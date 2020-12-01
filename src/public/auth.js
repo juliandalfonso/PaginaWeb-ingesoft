@@ -1,3 +1,6 @@
+
+// AOS.init();
+
 loggedOutLinks = document.querySelectorAll('.logged-out');
 loggedInLinks = document.querySelectorAll('.logged-in');
 
@@ -133,3 +136,8 @@ auth.onAuthStateChanged(user =>
         loginCheck(user);
     }
 });
+
+
+
+                                  
+

@@ -1,7 +1,7 @@
 {{!-- NAVBAR --}}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#"><i class="fas fa-compass h4"> TuristApp</i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,6 +22,7 @@
   </div>
 </nav>
 
+<img src="/wave.svg" alt="" >
 
 {{!-- MAIN CONTENT --}}
 
@@ -31,11 +32,12 @@
                 <h1>Paquetes</h1>
             </div>
             <div class="card-body">
+              <div class="container">
                 {{#if paquetes}}
-                <ul class="list-group">
+                <div class="row">
                     {{#each paquetes}}
                         
-                            <li class="list-group-item my-3 border border-success">
+                            <div class=" m-1 border border-success col-md-5 mx-auto">
                                 <img src="{{urlimg}}" alt="" class="img-fluid">
                                 <h5>{{origen}}-{{destino}}</h5>
                                 <h6>Salida: <span class="p">{{fechaSalida}}</span  class="p"></h6>
@@ -43,10 +45,28 @@
                                 <h6>hotel:<span class="p"> {{hotel}}</span  class="p"></h6>
                                 <h6>Detalles:</h6>
                                 <p>{{detalles}}</p>
-                                <i class="fas fa-shopping-cart btn btn-block btn-success"></i>
-                            </li>
+                                <h6>Precio:</h6>
+                                <p>${{precio}} USD</p>
+                                  <form action="/checkout" method="POST">
+                                    <script 
+                                      src="https://checkout.stripe.com/checkout.js"
+                                      class="stripe-button"
+                                      data-key="pk_test_51HtJv1GUk0MOUD0DgxqMod01orwQI8oNzL6lf4sAePJZvB1k5jkhDrfJ5DLs7nonPx8VNjPIRb16JIeD0efgwA6e00umyRM0aQ"
+                                      data-amount="{{precio}}"
+                                      data-currency="usd"
+                                      data-name="{{origen}}-{{destino}}"
+                                      data-description="Paquetes Turisticos"
+                                      data-image="/pago.png"
+                                      data-Locale="auto">
+                                    </script>
+                                    <button type="submit" class="btn btn-block btn-success">
+                                    <i class="fas fa-shopping-cart"></i>
+                                  </button>
+                                  </form>                              
+                            </div>
                     {{/each}}
-                </ul>
+                </div>
+                </div>
                 {{else}}
                 <p>No hay paquetes aún</p>
                 {{/if}}
@@ -107,3 +127,145 @@
     </div>
   </div>
 </div>
+
+
+<section class="logged-out">
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-6 my-auto text-light">
+      <h1>Lorem, ipsum dolor.</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum velit sunt reprehenderit enim quas. Aperiam nobis architecto optio consequatur similique adipisci, labore impedit. Laborum, earum! Excepturi accusantium assumenda ex molestias nulla doloribus a expedita.</p>
+      <div class="w-50 text-left">
+        <button class="btn btn-light btn-block"><i class="fas fa-passport h3"></i></button>
+      </div>
+    </div>
+    <div class="col-md-6" >
+      <img src="/undraw_adventure_4hum.svg" alt="" class="w-75">
+    </div>
+  </div>
+</div>
+
+<div class="container py-4" >
+  <div class="row mx-auto">
+    <div class="col-md-4 my-2">
+         <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://englishlive.ef.com/es-es/blog/wp-content/uploads/sites/12/2018/05/travel-phrasal-verbs-768x530.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 my-2">
+         <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://media.timeout.com/images/105672700/image.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 my-2">
+         <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.diabetes.co.uk/wp-content/uploads/2019/01/iStock-10019278401.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-2" data-slide-to="1"></li>
+    <li data-target="#carousel-example-2" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+          alt="First slide">
+        <div class="mask rgba-black-light"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Amantes del Viaje</h3>
+        <p>Lorem, ipsum dolor.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+          alt="Second slide">
+        <div class="mask rgba-black-strong"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Amantes del Bosque</h3>
+        <p>Lorem ipsum dolor sit.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+          alt="Third slide">
+        <div class="mask rgba-black-slight"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Amantes de los paisajes</h3>
+        <p>Lorem, ipsum.</p>
+      </div>
+    </div>
+  </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <!--Google map-->
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
+
+<!--Google Maps-->
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="/undraw_journey_lwlj.svg" alt="" class="w-75">
+    </div>
+    <div class="col-md-6 text-light">
+      <h1>Lorem, ipsum dolor.</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum velit sunt reprehenderit enim quas. Aperiam nobis architecto optio consequatur similique adipisci, labore impedit. Laborum, earum! Excepturi accusantium assumenda ex molestias nulla doloribus a expedita.</p>
+      <div class="w-50 text-left">
+        <button class="btn btn-light btn-block"><i class="fas fa-passport h3"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</section>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f3f4f5" fill-opacity="1" d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
