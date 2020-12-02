@@ -1,4 +1,4 @@
-//Solo se requiere el metodo router 
+//Solo se requiere el metodo router
 const { Router } = require('express');
 
 const router = Router();
@@ -31,14 +31,38 @@ router.get('/',(req,res)=>
     });
 });
 
-router.get('/admin',(req, res)=>
+
+router.get('/administrador',(req, res)=>
 {
-    db.ref('paquetes').once('value', (snapshot)=>
-    {
-        const data = snapshot.val();
-        res.render('admin', {paquetes: data});
-    });
+    res.render('administrador')
 });
+router.post('/administrador', (req,res)=>
+{
+
+      db.ref('administradores').once("value")
+      .then(function(snapshot) {
+         var name = snapshot.val(); // {first:"Ada",last:"Lovelace"}
+        // console.log(name);
+        for (var i in name) {
+            if(name[i].adminemail == req.body.adminemail )
+            {
+                if(name[i].password == req.body.password)
+                {
+                    db.ref('paquetes').once('value', (snapshot)=>
+                    {
+                        const data = snapshot.val();
+                        res.render('admin', {paquetes: data});
+                    });
+                    
+                }
+            }
+        }
+      });
+      
+
+});
+
+
 
 router.post('/checkout', async(req,res)=>
 {
@@ -65,7 +89,7 @@ router.post('/checkout', async(req,res)=>
 
 router.post('/new-paquete', (req,res)=>
 {
-    const nuevoPaquete = 
+    const nuevoPaquete =
     {
         origen: req.body.origen,
         destino: req.body.destino,
