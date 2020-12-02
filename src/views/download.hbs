@@ -1,5 +1,21 @@
-<img src="/wave.svg" alt="">
+{{!-- NAVBAR --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+      <a class="navbar-brand" href="#"><i class="fas fa-compass h4"> TuristApp</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Inicio</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
 
+<img src="/wave.svg" alt="">
 
 <div class="container">
     <div class="row">
@@ -13,3 +29,19 @@
         </div>
     </div>
 </div>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>
+    Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "julianalfonso082@gmail.com",
+    Password : "0194416F97E85A8323C4ADF6FFBE8F2D4090",
+    To : 'juliandavid.alfonso@utp.edu.co',
+    From : "julianalfonso082@gmail.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+</script>

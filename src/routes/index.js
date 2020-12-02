@@ -31,11 +31,20 @@ router.get('/',(req,res)=>
     });
 });
 
+router.get('/admin',(req, res)=>
+{
+    db.ref('paquetes').once('value', (snapshot)=>
+    {
+        const data = snapshot.val();
+        res.render('admin', {paquetes: data});
+    });
+});
 
 router.get('/administrador',(req, res)=>
 {
     res.render('administrador')
 });
+
 router.post('/administrador', (req,res)=>
 {
 
@@ -94,7 +103,7 @@ router.post('/new-paquete', (req,res)=>
         origen: req.body.origen,
         destino: req.body.destino,
         fechaSalida: req.body.fechaSalida,
-        fechaLlegada: req.body.fechaSalida,
+        fechaLlegada: req.body.fechaLlegada,
         hotel: req.body.hotel,
         detalles: req.body.detalles,
         urlimg: req.body.urlimg,

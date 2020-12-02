@@ -17,39 +17,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-{{!-- FIREBASE --}}
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
-
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyD8NTY51stSo3wFq36yJuMS5whJ8zIBOX0",
-    authDomain: "proyecto-ingesoft.firebaseapp.com",
-    databaseURL: "https://proyecto-ingesoft.firebaseio.com",
-    projectId: "proyecto-ingesoft",
-    storageBucket: "proyecto-ingesoft.appspot.com",
-    messagingSenderId: "776561931171",
-    appId: "1:776561931171:web:c474e60b3c28679fbfa016"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const fs = firebase.firestore();
-  
-</script>  
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 $('.stripe-button-el').hide();
 </script>
-
 <script src="auth.js"></script>
+
+<script>
+  AOS.init();
+</script>
+
+
+</script>
 
 </body>
 </html>

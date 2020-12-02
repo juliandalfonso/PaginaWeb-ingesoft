@@ -1,6 +1,22 @@
-
+{{!-- NAVBAR --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+      <a class="navbar-brand" href="#"><i class="fas fa-compass h4"> TuristApp</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" >
+        <a class="nav-link" href="/">Inicio</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
 
 <img src="/wave.svg" alt="">
+
 
 <section class="logged-in">
 <div class="col-md-6 offset-md-3 my-4" >
@@ -36,6 +52,7 @@
                 {{/if}}
             </div>
             <div class="card-footer">
+                <h1 class="text-center pt-3">Crear Paquete</h1>
                 <form action="/new-paquete" method="POST">
                     <div class="form-group">
                         <input type="text" name="origen" placeholder="origen" class="form-control" autofocus>
@@ -55,7 +72,7 @@
                         <input type="text" name="hotel" placeholder="hotel" class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="detalles" placeholder="detalles" class="form-control">
+                        <textarea name="detalles" id="" cols="30" rows="10" placeholder="detalles" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="url" name="urlimg" placeholder="urlimg" class="form-control">
