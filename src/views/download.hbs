@@ -23,7 +23,7 @@
             <div class="card mt-4">
     <div class="card-body text-center">
         <h1>Ver Recibo</h1>
-        <a href="/recibo.txt" download="" class="btn btn-dark">Descargar</a>
+        <a href="/recibo.txt" download="" class="btn btn-dark" id="descarga">Descargar</a>
     </div>
 </div>
         </div>
@@ -34,14 +34,33 @@
 
 <script>
     Email.send({
-    Host : "smtp.elasticemail.com",
+    Host : "smtp.gmail.com",
     Username : "julianalfonso082@gmail.com",
-    Password : "0194416F97E85A8323C4ADF6FFBE8F2D4090",
-    To : 'juliandavid.alfonso@utp.edu.co',
+    Password : "opqznywtxovwnbpz",
+    To : 'isexywati2@maliberty.com',
     From : "julianalfonso082@gmail.com",
-    Subject : "This is the subject",
-    Body : "And this is the body"
+    Subject : "Compra Realizada",
+    Body : "La compra del correo julian@gmail.com ha sido realizada exitosamente"
 }).then(
   message => alert(message)
 );
+
+const botonDescarga = document.getElementById('descarga');
+
+botonDescarga.addEventListener('click',loadTxt);
+
+function loadTxt()
+{
+  fetch('recibo.txt')
+  .then(function(response)
+  {
+    return response.text();
+  })
+  .then(function(data)
+  {
+    console.log(data);
+  })
+}
+
+
 </script>

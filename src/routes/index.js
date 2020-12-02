@@ -4,6 +4,7 @@ const { Router } = require('express');
 const router = Router();
 const admin = require('firebase-admin');
 const stripe = require('stripe')('sk_test_51HtJv1GUk0MOUD0Dpr4MvaGOOotkX6uDggSc4B1Hs6of52pCySQ3inBXNH5Zfj3ghLqsLLqf6POIsWRnDTFpeGhy00d2zC1w7u');
+const fsLibrary  = require('fs');
 
 var serviceAccount = require("../../proyecto-ingesoft-firebase-adminsdk-fivf9-2d23d83f2b.json");
 
@@ -75,6 +76,12 @@ router.post('/administrador', (req,res)=>
 
 router.post('/checkout', async(req,res)=>
 {
+    data="El correo "+req.body.stripeEmail+", Ha realizado un pago exitoso";
+    fsLibrary.writeFileSync('src/public/recibo.txt', data, (error) => { 
+
+        // In case of a error throw err exception. 
+        if (error) throw err; 
+    });
     //creo un comprador con su email y token
     const customer = await stripe.customers.create(
         {
