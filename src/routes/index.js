@@ -76,7 +76,7 @@ router.post('/administrador', (req,res)=>
 
 router.post('/checkout', async(req,res)=>
 {
-    data="El correo "+req.body.stripeEmail+", Ha realizado un pago exitoso";
+    data="El correo "+req.body.stripeEmail+", Ha realizado un pago exitoso..."+"att: Tursitapp";
     fsLibrary.writeFileSync('src/public/recibo.txt', data, (error) => { 
 
         // In case of a error throw err exception. 
