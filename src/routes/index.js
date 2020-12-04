@@ -92,7 +92,7 @@ router.post('/checkout', async(req,res)=>
 
     //creo una compra y la cargo a stripe
     const charge = await stripe.charges.create({
-        amount:'3000',
+        amount:'30000',
         currency: 'usd',
         customer: customer.id,
         description: 'Paquete turístico'
