@@ -1,1 +1,3 @@
-$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\julia\Desktop\Proyecto-Ingesoft\proyecto-ingesoft-firebase-adminsdk-fivf9-2d23d83f2b.json"
+# Pagina web para la clase de Ingesoft
+
+página web con stripe y firebase, donde ae pueden reservar paquetes turisticos con una interfaz agradable, además tiene login con correo facebook y google, todo gracias a firebase auth 
